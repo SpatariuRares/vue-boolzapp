@@ -45,20 +45,19 @@
     padding: 10px;
     height:var(--h60);
 }
-.myavatar>div{
+.myavatar>div,.actualchat>div{
     display: flex;
     align-items: center;
 }
 .avatar{
     height: 50px;
     border-radius: 50%;
+    margin-right: 10px;
 }
-.myavatar i{
+.myavatar i,.actualchat i{
     margin: 0 5px;
 }
-.name>span{
-    padding-left: 10px;
-}
+
 .contacts .notify{
     background-color:rgba(142,218,252,255);
     display: flex;
@@ -116,10 +115,44 @@ input[type="text"]{
     border-bottom: 1px solid var(--gray);
     display: flex;
 }
-.contact>span{
-    margin-left: 10px;
-}
 .message{
     height:calc(100% - var(--h60) - var(--h60));
     background-image: url(../img/mine.jpg);
+}
+
+.accesso{
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+.send{
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.3rem;
+}
+.send input[type="text"]{
+    width: 85%;
+    height: 2rem;
+    padding:10px;
+    border-radius: 5px;
+}
+.ricevuti{
+    background-color:white;
+    border-radius: 5px;
+    float: left;
+    padding: 3px;
+}
+.message>div{
+    padding: 5px;
+}
+.inviati{
+    background-color:greenyellow;
+    border-radius: 5px;
+    padding:3px;
+    float:right;
+}
+
+.clearfix:after{
+    clear: both;
+    display: table;
+    content: "";
 }

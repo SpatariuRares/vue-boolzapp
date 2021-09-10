@@ -3,6 +3,10 @@ Vue.config.devtools = true;
 const app =new Vue({
     el: '#root',
     data: {
+        message:"",
+        counter:0,
+        filter:"",
+        save:[],
         contacts: [
             {
                 name: 'Michele',
@@ -87,7 +91,33 @@ const app =new Vue({
         ]
     },
     methods: {
-       
+       changeChat(index){
+            this.counter=index;
+       },
+       sentmessage(){
+           this.contacts[this.counter].messages.push({message:this.message,status: 'sent'});
+           this.message="";
+           this.autoReply();
+       },
+       autoReply(){
+           setTimeout(()=>{
+                this.contacts[this.counter].messages.push({message:"ok",status: 'received'});
+           },1000);
+       }
+       /*filterlist(){
+           this.contacts.foreach((contatto,index)=>{
+               let f = this.filter.toLowerCase();
+               if(f.trim ==""){
+                   return true;
+               }
+               else{
+                   let c = contatto.name.toLowerCase();
+                   if(c.includes(f)){
+                       return this.save.push(index)
+                   }
+               }
+            });  
+       },*/
     }
 })
 
