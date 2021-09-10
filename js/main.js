@@ -95,13 +95,15 @@ const app =new Vue({
             this.counter=index;
        },
        sentmessage(){
-           this.contacts[this.counter].messages.push({message:this.message,status: 'sent'});
+           let today = new Date();
+           this.contacts[this.counter].messages.push({message:this.message,status: 'sent',date:today.getDate()+"/"+today.getMonth()+"/"+ today.getFullYear()+" "+today.getHours()+":"+ today.getMinutes()+":"+ today.getSeconds()});
            this.message="";
            this.autoReply();
        },
        autoReply(){
            setTimeout(()=>{
-                this.contacts[this.counter].messages.push({message:"ok",status: 'received'});
+                let today = new Date();
+                this.contacts[this.counter].messages.push({message:"ok",status: 'received',date:today.getDate()+"/"+today.getMonth()+"/"+ today.getFullYear()+" "+today.getHours()+":"+ today.getMinutes()+":"+ today.getSeconds()});
            },1000);
        },
        filterlist(){
