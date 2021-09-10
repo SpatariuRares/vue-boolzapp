@@ -40,25 +40,46 @@
                     </div>
                 </div>
                 <div class="search">
-                    <input type="text" placeholder="search">
+                    <input type="text" placeholder="search" v-model="filter" @keyup="filterlist">
                     <button class="c-gray"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="chats">
-                    <div class="contact" v-for="contato in contacts">
-                        <img class="avatar" :src="`img/avatar${contato.avatar}.jpg`" :alt="contato.name">
-                        <span>{{contato.name}}</span>
+                    <div class="contact" v-for="numero in save" @click="changeChat(numero)">
+                        <img class="avatar" :src="`img/avatar${contacts[numero].avatar}.jpg`" :alt="contacts[numero].name">
+                        <span>{{contacts[numero].name}}</span> 
                     </div>
                 </div>
             </div>
             <div class="chat">
                 <div class="actualchat">
                     <div class="name">
-                        <!-- <img src="img/avatar_1.jpg" alt="avatar_1">
-                                            <span>paolo dosseto</span> -->
+                        <img class="avatar" :src="`img/avatar${contacts[counter].avatar}.jpg`" :alt="contacts[counter].name">
+                        <div>
+                            {{contacts[counter].name}}
+                            <div class="c-gray">ultimo accesso oggi alle</div>
+                        </div>
+                    </div>
+                    <div class="c-gray">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
-                <div class="message"></div>
-                <div class="send"></div>
+                <div class="message">
+                    <div v-for="message in contacts[counter].messages">
+                        <div class="clearfix">
+                            <div class="mess" :class="(message.status=='sent')? 'inviati':'ricevuti'">
+                                {{message.message}}
+                                <div class="c-gray ora">{{message.date}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="send">
+                    <i class="far fa-smile c-gray"></i>
+                    <input type="text"  name="" @keyup.enter="sentmessage" v-model="message" placeholder="manda messagio" id="">
+                    <i class="fas fa-microphone c-gray"></i>
+                </div>
             </div>
         </div>
     </div>

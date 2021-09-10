@@ -135,24 +135,29 @@ input[type="text"]{
     padding:10px;
     border-radius: 5px;
 }
-.ricevuti{
-    background-color:white;
-    border-radius: 5px;
-    float: left;
-    padding: 3px;
-}
 .message>div{
     padding: 5px;
 }
+.ricevuti{
+    background-color:white;
+    float:left;
+}
 .inviati{
     background-color:greenyellow;
-    border-radius: 5px;
-    padding:3px;
     float:right;
+}
+.mess{
+    border-radius: 5px;
+    padding:10px;
+    max-width: 50%;
 }
 
 .clearfix:after{
     clear: both;
     display: table;
     content: "";
+}
+.ora{
+    font-size: 0.5em;
+    text-align: right;
 }

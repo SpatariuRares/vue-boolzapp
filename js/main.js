@@ -5,8 +5,8 @@ const app =new Vue({
     data: {
         message:"",
         counter:0,
+        save:[0,1,2,3],
         filter:"",
-        save:[],
         contacts: [
             {
                 name: 'Michele',
@@ -103,12 +103,14 @@ const app =new Vue({
            setTimeout(()=>{
                 this.contacts[this.counter].messages.push({message:"ok",status: 'received'});
            },1000);
-       }
-       /*filterlist(){
-           this.contacts.foreach((contatto,index)=>{
+       },
+       filterlist(){
+           this.save=[];
+           this.contacts.forEach((contatto,index)=>{
                let f = this.filter.toLowerCase();
-               if(f.trim ==""){
-                   return true;
+               console.log(f)
+               if(f.replace(/\s+/g, '') =="" || f.replace(/\s+/g, '') ==''){
+                   return this.save.push(index);
                }
                else{
                    let c = contatto.name.toLowerCase();
@@ -117,7 +119,7 @@ const app =new Vue({
                    }
                }
             });  
-       },*/
+       },
     }
 })
 
