@@ -122,6 +122,9 @@ const app =new Vue({
                }
             });  
        },
+       deleteMessage(index) {
+           this.contacts[this.counter].messages.splice(index,1);
+       }
     }
 })
 

@@ -69,16 +69,16 @@
                     </div>
                 </div>
                 <div class="message">
-                    <div v-for="message in contacts[counter].messages">
+                    <div v-for="(message,index) in contacts[counter].messages">
                         <div class="clearfix">
                             <div class="mess" :class="(message.status=='sent')? 'inviati':'ricevuti'">
-                                <div>
+                                <div class="freccia">
                                     <i class="fas fa-chevron-down c-gray arrow"></i>
-                                    <ul class="messageMenu" v-show="message.visible">
+                                    <ul class="messageMenu">
                                         <li>
                                             Message info
                                         </li>
-                                        <li>
+                                        <li @click="deleteMessage(index)">
                                             Delete message
                                         </li>
                                     </ul>
