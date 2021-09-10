@@ -17,23 +17,48 @@
     <div class="container">
         <div id="root">
             <div class="contacts">
-                <div class="avatar">
+                <div class="myavatar">
                     <div class="name">
-                        <!-- <img src="img/avatar_1.jpg" alt="avatar_1">
-                        <span>paolo dosseto</span> -->
+                        <img class="avatar" src="img/avatar_io.jpg" alt="avatar_1">
+                        <span>Paolo Dosseto</span> 
                     </div>
-                    <div>
-
+                    <div class="c-gray">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
-                <div class="notify"></div>
-                <div class="search"></div>
-                <div class="chats"></div>
+                <div class="notify">
+                    <i class="fas fa-bell-slash"></i>
+                    <div>
+                        <div>
+                            Ricevi notifiche di nuovi messaggi
+                        </div>
+                        <div class="c-gray">
+                            attiva notifiche desktop
+                        </div>
+                    </div>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="search">
+                    <button class="c-gray"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="chats">
+                    <div class="contact" v-for="contato in contacts">
+                        <img class="avatar" :src="`img/avatar${contato.avatar}.jpg`" :alt="contato.name">
+                        <span>{{contato.name}}</span>
+                    </div>
+                </div>
             </div>
             <div class="chat">
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="actualchat">
+                    <div class="name">
+                        <!-- <img src="img/avatar_1.jpg" alt="avatar_1">
+                                            <span>paolo dosseto</span> -->
+                    </div>
+                </div>
+                <div class="message"></div>
+                <div class="send"></div>
             </div>
         </div>
     </div>

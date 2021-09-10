@@ -3,11 +3,23 @@
     margin: 0;
     padding: 0;
 }
+:root {
+  --h60: 60px;
+  --h40: 40px;
+  --gray:rgba(177,177,177,255);
+}
+
+.c-gray{
+    color: var(--gray);
+}
+
+
+
 .container{
     width: 100%;
     height: 100vh;
     margin: 0 auto;
-    background-image:linear-gradient(to top, rgb(255, 255, 255) 80%, rgb(81, 255, 0)  20%);
+    background-image:linear-gradient(to top, rgba(217,219,213,255) 80%, rgba(0,150,136,255)  20%);
 }
 #root{
     width: 70%;
@@ -25,27 +37,89 @@
     width: 70%;
 }
 
-.debug .chat{
-    background-color:rebeccapurple;
-}
-.debug .contacts{
-    background-color:royalblue;
-}
-.debug .avatar{
-    background-color:gainsboro;
-    height: 80px;
-}
 
-.debug .notify{
-    background-color:gray;
-    height: 80px;
+.myavatar,.actualchat,.send{
+    background-color: rgba(234,234,234,255);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    height:var(--h60);
 }
-
-.debug .search{
-    background-color:darkblue;
+.myavatar>div{
+    display: flex;
+    align-items: center;
+}
+.avatar{
     height: 50px;
+    border-radius: 50%;
+}
+.myavatar i{
+    margin: 0 5px;
+}
+.name>span{
+    padding-left: 10px;
+}
+.contacts .notify{
+    background-color:rgba(142,218,252,255);
+    display: flex;
+    align-items: center;
+    padding:10px 0;
 }
 
-.debug .chats{
-    background-color:darksalmon;
+.contacts .notify>div{
+    margin-left: 10px;
+}
+
+.contacts .notify>div>.c-gray{
+    text-decoration: underline;
+}
+
+.contacts .notify i{
+    color:rgba(142,218,252,255);
+    background-color: white;
+    font-size: 1rem;
+    padding:10px;
+    border-radius: 50%;
+    margin-left: 20px;
+    aspect-ratio: 1/1;
+}
+
+
+.search{
+    background-color:rgba(250,250,250,255);
+    height: var(--h40);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input[type="text"]{
+    border: 0;
+}
+.search input[type="text"]{
+    width:90%;
+    height:70%;
+}
+.search button{
+    border: 0;
+    background-color:rgba(250,250,250,255);
+}
+.chats{
+    background-color:rgba(255,255,255,255);
+    height: calc(100% - var(--h40) - var(--h60) - var(--h60));
+    overflow: auto;
+    display: flex;
+    flex-direction:column;
+}
+.contact{
+    padding: 10px;
+    border-bottom: 1px solid var(--gray);
+    display: flex;
+}
+.contact>span{
+    margin-left: 10px;
+}
+.message{
+    height:calc(100% - var(--h60) - var(--h60));
+    background-image: url(../img/mine.jpg);
 }
