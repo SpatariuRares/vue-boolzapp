@@ -69,8 +69,22 @@
                     <div v-for="message in contacts[counter].messages">
                         <div class="clearfix">
                             <div class="mess" :class="(message.status=='sent')? 'inviati':'ricevuti'">
-                                {{message.message}}
-                                <div class="c-gray ora">{{message.date}}</div>
+                                <div>
+                                    <i class="fas fa-chevron-down c-gray arrow"></i>
+                                    <ul class=messageMenu>
+                                        <li>
+                                            Message info
+                                        </li>
+                                        <li>
+                                            Delete message
+                                        </li>
+                                    </ul>
+                                    
+                                    {{message.message}}
+                                </div>
+                                <div class="c-gray ora">
+                                    {{message.date}}
+                                </div>
                             </div>
                         </div>
                     </div>
