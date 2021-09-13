@@ -26,7 +26,7 @@ const app =new Vue({
                     {
                         date: '10/01/2020 16:15:22',
                         message: 'Tutto fatto!',
-                        status: 'received'
+                        status: 'received',
                     }
                 ],
             },
@@ -90,6 +90,13 @@ const app =new Vue({
             },
         ]
     },
+   /* mounted(){
+        for (let i = 0; i <this.contacts.length;i++){
+            for(let j=0;j<this.contacts[i].messages.length;j++){
+                this.contacts[i].messages[j].showPop=false;
+            }
+        }
+    },*/
     methods: {
        changeChat(index){
             this.counter=index;
@@ -123,8 +130,13 @@ const app =new Vue({
             });  
        },
        deleteMessage(index) {
-           this.contacts[this.counter].messages.splice(index,1);
-       }
+           this.contacts[this.counter].messages[index].message="hai cancellato il messagio";
+       },
+       set(target,key,value){
+           console.log(target)
+           console.log(target[key])
+           return target[key] = value;
+        }
     }
 })
 

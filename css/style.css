@@ -188,7 +188,6 @@ input[type="text"]{
     opacity: 1;
 }
 .messageMenu{
-    display:none;
     position: absolute;
     background-color:white;
     padding:20px;
@@ -196,10 +195,6 @@ input[type="text"]{
     top: 100%;
     z-index: 999;
 }
-.freccia:active .messageMenu{
-    display:inline-block;
-}
-
 .inviati .messageMenu{
     right:0;
 }
