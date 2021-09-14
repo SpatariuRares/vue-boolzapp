@@ -51,7 +51,7 @@
                                 <span>
                                     {{contacts[numero].messages[contacts[numero].messages.length-1].message}}
                                 </span>
-                                <span class="f-right">
+                                <span class="t-right">
                                     {{ obtainTime(contacts[numero].messages[contacts[numero].messages.length-1].date)}}
                                 </span>
                             </div>
@@ -65,7 +65,7 @@
                         <img class="avatar" :src="`img/avatar${contacts[counter].avatar}.jpg`" :alt="contacts[counter].name">
                         <div>
                             {{contacts[counter].name}}
-                            <div class="c-gray">ultimo accesso oggi alle</div>
+                            <div class="c-gray">ultimo accesso oggi alle {{obtainTime(contacts[counter].messages[contacts[counter].messages.length-1].date)}}</div>
                         </div>
                     </div>
                     <div class="c-gray">

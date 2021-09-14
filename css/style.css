@@ -168,6 +168,12 @@ input[type="text"]{
     font-size: 0.5em;
     text-indent: 0;
 }
+.chats .ora span{
+    width:48%;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+}
 
 .inviati .ora{
     text-align: right;
@@ -218,6 +224,6 @@ input[type="text"]{
 .chats .contact>div:last-child{
     width:calc(100% - 60px)
 }
-.f-right{
-    float:right
+.t-right{
+    text-align: right;
 }
