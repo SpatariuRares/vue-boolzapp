@@ -12,6 +12,9 @@
 .c-gray{
     color: var(--gray);
 }
+.b_gray{
+    background-color: rgba(220,220,220,255);
+}
 
 
 
@@ -165,6 +168,7 @@ input[type="text"]{
     font-size: 0.5em;
     text-indent: 0;
 }
+
 .inviati .ora{
     text-align: right;
 }
@@ -191,10 +195,13 @@ input[type="text"]{
     position: absolute;
     background-color:white;
     padding:20px;
-    list-style: none;
+   
     top: 100%;
     z-index: 999;
     white-space: nowrap;
+}
+.messageMenu>ul{
+     list-style: none;
 }
 .inviati .messageMenu{
     right:0;
@@ -202,12 +209,15 @@ input[type="text"]{
 .ricevuti .messageMenu{
     left:0;
 }
-.displayBlock{
-    display:inline-block;
-}
-.displayNone {
-    display: none;
-}
 .mess>div:first-child{
     position: relative;
+}
+.chats .contact:hover:not(.b_gray){
+    background-color:rgba(240,240,240,255)
+}
+.chats .contact>div:last-child{
+    width:calc(100% - 60px)
+}
+.f-right{
+    float:right
 }

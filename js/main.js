@@ -93,14 +93,6 @@ const app =new Vue({
     mounted(){
         for (let i = 0; i <this.contacts.length;i++){
             this.save.push(i)
-            document.getElementsByClassName("arrow")[i].addEventListener("click",(event)=>{
-                if(event.path[0].nextElementSibling.classList.value.includes("displayNone")){
-                    event.path[0].nextElementSibling.classList.replace("displayNone","displayBlock")
-                }
-                else if(event.path[0].nextElementSibling.classList.value.includes("displayBlock")){
-                    event.path[0].nextElementSibling.classList.replace("displayBlock","displayNone")
-                }
-            });
         }
     },
     methods: {
@@ -108,15 +100,13 @@ const app =new Vue({
             this.counter=index;
        },
        sentmessage(){
-           let today = new Date();
-           this.contacts[this.counter].messages.push({message:this.message,status: 'sent',date:today.getDate()+"/"+today.getMonth()+"/"+ today.getFullYear()+" "+today.getHours()+":"+ today.getMinutes()+":"+ today.getSeconds()});
+           this.contacts[this.counter].messages.push({message:this.message,status: 'sent',date:dayjs().format('DD/M/YYYY HH:mm:ss')});
            this.message="";
            this.autoReply();
        },
        autoReply(){
            setTimeout(()=>{
-                let today = new Date();
-                this.contacts[this.counter].messages.push({message:"ok",status: 'received',date:today.getDate()+"/"+today.getMonth()+"/"+ today.getFullYear()+" "+today.getHours()+":"+ today.getMinutes()+":"+ today.getSeconds()});
+                this.contacts[this.counter].messages.push({message:"ok",status: 'received',date:dayjs().format('DD/M/YYYY HH:mm:ss')});
            },1000);
        },
        filterlist(){
@@ -138,5 +128,22 @@ const app =new Vue({
        deleteMessage(index) {
            this.contacts[this.counter].messages[index].message="hai cancellato il messagio";
        },
+       onArrowClick(message, event) {
+           
+            this.$set(message, 'showPopup', true);
+            console.log(event);
+            console.log(event.currentTarget);
+            event.currentTarget.focus();
+            console.log(focus)
+        },
+        obtainTime(dateString) {
+            return dateString.split(' ')[1];
+        },
+        onFocusLost(message) {
+            this.$set(message, 'showPopup', false);
+        },
+        onPopupClick(message) {
+            message.showPopup = false;
+        },
     }
 })
