@@ -5,7 +5,7 @@ const app =new Vue({
     data: {
         message:"",
         counter:0,
-        save:[0,1,2,3],
+        save:[],
         filter:"",
         contacts: [
             {
@@ -90,13 +90,19 @@ const app =new Vue({
             },
         ]
     },
-   /* mounted(){
+    mounted(){
         for (let i = 0; i <this.contacts.length;i++){
-            for(let j=0;j<this.contacts[i].messages.length;j++){
-                this.contacts[i].messages[j].showPop=false;
-            }
+            this.save.push(i)
+            document.getElementsByClassName("arrow")[i].addEventListener("click",(event)=>{
+                if(event.path[0].nextElementSibling.classList.value.includes("displayNone")){
+                    event.path[0].nextElementSibling.classList.replace("displayNone","displayBlock")
+                }
+                else if(event.path[0].nextElementSibling.classList.value.includes("displayBlock")){
+                    event.path[0].nextElementSibling.classList.replace("displayBlock","displayNone")
+                }
+            });
         }
-    },*/
+    },
     methods: {
        changeChat(index){
             this.counter=index;
@@ -132,13 +138,5 @@ const app =new Vue({
        deleteMessage(index) {
            this.contacts[this.counter].messages[index].message="hai cancellato il messagio";
        },
-       set(target,key,value){
-           console.log(target)
-           console.log(target[key])
-           return target[key] = value;
-        }
     }
 })
-
-
-

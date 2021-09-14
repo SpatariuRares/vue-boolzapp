@@ -73,13 +73,14 @@
                         <div class="clearfix">
                             <div class="mess" :class="(message.status=='sent')? 'inviati':'ricevuti'">
                                 <div class="freccia" >
-                                    <i @click="set(message,'showPop',true,index)" class="fas fa-chevron-down c-gray arrow"></i>
-                                    <ul class="messageMenu" v-show="message.showPop">
+                                    <i class="fas fa-chevron-down c-gray arrow"></i>
+                                    <ul class="messageMenu displayNone">
                                         <li>
                                             Message info
                                         </li>
                                         <li @click="deleteMessage(index)">
                                             Delete message
+
                                         </li>
                                     </ul>
                                     {{message.message}}

@@ -194,12 +194,19 @@ input[type="text"]{
     list-style: none;
     top: 100%;
     z-index: 999;
+    white-space: nowrap;
 }
 .inviati .messageMenu{
     right:0;
 }
 .ricevuti .messageMenu{
     left:0;
+}
+.displayBlock{
+    display:inline-block;
+}
+.displayNone {
+    display: none;
 }
 .mess>div:first-child{
     position: relative;
