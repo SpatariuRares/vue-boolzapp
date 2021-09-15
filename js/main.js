@@ -141,9 +141,10 @@ const app =new Vue({
             message.showPopup = false;
         },
         scrollToEnd() {    	
-            var container = document.getElementById("message");
-            container.scrollTop = container.scrollHeight;
-            console.log(container.scrollTop,container.scrollHeight,container.scrollHeight-container.scrollTop);
+            this.$nextTick(() => {
+                const elementHtml = document.getElementById("message");
+                elementHtml.scrollTop = elementHtml.scrollHeight;
+            });
         },
     }
 })
