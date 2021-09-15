@@ -100,13 +100,16 @@ const app =new Vue({
             this.counter=index;
        },
        sentmessage(){
-           this.contacts[this.counter].messages.push({message:this.message,status: 'sent',date:dayjs().format('DD/M/YYYY HH:mm:ss')});
-           this.message="";
-           this.autoReply();
+           if(this.message.trim()!=""){
+               this.contacts[this.counter].messages.push({message:this.message,status: 'sent',date:dayjs().format('DD/M/YYYY HH:mm:ss')});
+               this.message="";
+               this.autoReply();
+           }
        },
        autoReply(){
+           let c=this.counter
            setTimeout(()=>{
-                this.contacts[this.counter].messages.push({message:"ok",status: 'received',date:dayjs().format('DD/M/YYYY HH:mm:ss')});
+                this.contacts[c].messages.push({message:"ok",status: 'received',date:dayjs().format('DD/M/YYYY HH:mm:ss')});
            },1000);
        },
        filterlist(){
