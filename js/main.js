@@ -57,7 +57,7 @@ const app =new Vue({
                 messages: [{
                     date: '28/03/2020 10:10:40',
                     message: 'La Marianna va in campagna',
-                    status: 'received'
+                    status: 'received',
                 },
                     {
                         date: '28/03/2020 10:20:10',
@@ -92,6 +92,7 @@ const app =new Vue({
     methods: {
        changeChat(index){
             this.counter=index;
+            this.scrollToEnd()
        },
        sentmessage(){
            if(this.message.trim()!=""){
