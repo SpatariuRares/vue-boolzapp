@@ -200,8 +200,8 @@ input[type="text"]{
 .messageMenu{
     position: absolute;
     background-color:white;
-    padding:20px;
    
+    box-shadow: 0px 0px 6px 0px rgb(71, 71, 71);
     top: 100%;
     z-index: 999;
     white-space: nowrap;
@@ -209,6 +209,14 @@ input[type="text"]{
 .messageMenu>ul{
      list-style: none;
 }
+.messageMenu>ul>li{
+     padding:20px;
+}
+
+.messageMenu>ul>li:hover{
+    background-color:var(--gray)
+}
+
 .inviati .messageMenu{
     right:0;
 }

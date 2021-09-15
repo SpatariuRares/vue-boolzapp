@@ -128,16 +128,14 @@ const app =new Vue({
        deleteMessage(index) {
            this.contacts[this.counter].messages[index].message="hai cancellato il messagio";
        },
-       onArrowClick(message, event) {
-           
+       onArrowClick(message, e) {
             this.$set(message, 'showPopup', true);
-            console.log(event);
-            console.log(event.currentTarget);
-            event.currentTarget.focus();
-            console.log(focus)
+            e.currentTarget.focus();
         },
         obtainTime(dateString) {
-            return dateString.split(' ')[1];
+            let hour=dateString.split(' ')[1].split(":")[0];
+            let minute=dateString.split(' ')[1].split(":")[1];
+            return hour+":"+minute;
         },
         onFocusLost(message) {
             this.$set(message, 'showPopup', false);

@@ -12,7 +12,7 @@
     <title>Titolo Documento</title>
 </head>
 
-<body class="debug">
+<body>
     <div class="container">
         <div id="root">
             <div class="contacts">
@@ -75,17 +75,16 @@
                     </div>
                 </div>
                 <div class="message">
-                    <div v-for="(message,index) in contacts[counter].messages">
-                        <div class="clearfix">
-                            <div class="mess" :class="(message.status=='sent')? 'inviati':'ricevuti'"
-                                    @click="onArrowClick(message, $event)" 
-                                    @blur="onFocusLost(message, $event)"
+                    <div class="clearfix" v-for="(message,index) in contacts[counter].messages">
+                            <div class="mess" :class="(message.status=='sent')? 'inviati':'ricevuti'"  
+                            tabindex="-1"
+                            @click="onArrowClick(message, $event)" 
+                            @blur="onFocusLost(message)"
                             >
-                                <div class="freccia">
+                            
+                                <div class="freccia" >
 
-                                    <i class="fas fa-chevron-down c-gray arrow">
-
-                                    </i>
+                                    <i class="fas fa-chevron-down c-gray arrow"></i>
 
                                     <div class="messageMenu"
                                         v-if="message.showPopup" 
@@ -106,7 +105,6 @@
                                     {{obtainTime(message.date)}}
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
                 <div class="send">
