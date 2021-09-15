@@ -103,14 +103,15 @@ const app =new Vue({
        },
        autoReply(){
            let c=this.counter
+           let response=this.AIsend();
            setTimeout(()=>{
-                this.contacts[c].messages.push({message:"ok",status: 'received',date:dayjs().format('DD/M/YYYY HH:mm:ss')});
+                this.contacts[c].messages.push({message:response,status: 'received',date:dayjs().format('DD/M/YYYY HH:mm:ss')});
                 this.scrollToEnd();
             },1000);
        },
        filterlist(){
            this.save=[];
-           this.contacts.forEach((contatto,index)=>{
+           this.contacts.forEach((contatto)=>{
                let f = this.filter.toLowerCase();
                console.log(f)
                 let c = contatto.name.toLowerCase();
@@ -146,5 +147,20 @@ const app =new Vue({
                 elementHtml.scrollTop = elementHtml.scrollHeight;
             });
         },
+        AIsend(){
+            const answers=[
+                "ok",
+                "sure",
+                "bho",
+                "nein",
+                "yes",
+                "no",
+                "Spatariu Hambareanu Rares constantin"
+            ];
+            return answers[this.random(0, answers.length)]
+        },
+        random(min,max){
+            return Math.floor(Math.random()*(max-min)+min)
+        }
     }
 })

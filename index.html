@@ -73,7 +73,7 @@
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
-                <div id="message" v-chat-scroll>
+                <div id="message">
                     <div class="clearfix" v-for="(message,index) in contacts[counter].messages">
                             <div class="mess" :class="(message.status=='sent')? 'inviati':'ricevuti'"  
                             tabindex="-1"
