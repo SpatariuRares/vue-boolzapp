@@ -119,7 +119,7 @@ input[type="text"]{
     border-bottom: 1px solid var(--gray);
     display: flex;
 }
-.message{
+#message{
     height:calc(100% - var(--h60) - var(--h60));
     background-image: url(../img/mine.jpg);
     overflow:auto;
@@ -140,7 +140,7 @@ input[type="text"]{
     padding:10px;
     border-radius: 5px;
 }
-.message>div{
+#message>div{
     padding: 5px 20px;
 }
 .ricevuti{

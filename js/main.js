@@ -97,6 +97,7 @@ const app =new Vue({
            if(this.message.trim()!=""){
                this.contacts[this.counter].messages.push({message:this.message,status: 'sent',date:dayjs().format('DD/M/YYYY HH:mm:ss')});
                this.message="";
+               this.scrollToEnd();
                this.autoReply();
            }
        },
@@ -104,7 +105,8 @@ const app =new Vue({
            let c=this.counter
            setTimeout(()=>{
                 this.contacts[c].messages.push({message:"ok",status: 'received',date:dayjs().format('DD/M/YYYY HH:mm:ss')});
-           },1000);
+                this.scrollToEnd();
+            },1000);
        },
        filterlist(){
            this.save=[];
@@ -137,6 +139,11 @@ const app =new Vue({
         },
         onPopupClick(message) {
             message.showPopup = false;
+        },
+        scrollToEnd() {    	
+            var container = document.getElementById("message");
+            container.scrollTop = container.scrollHeight;
+            console.log(container.scrollTop,container.scrollHeight,container.scrollHeight-container.scrollTop);
         },
     }
 })
