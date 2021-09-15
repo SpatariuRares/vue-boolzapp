@@ -7,6 +7,7 @@
   --h60: 60px;
   --h40: 40px;
   --gray:rgba(177,177,177,255);
+  --green:rgb(220, 248, 198);
 }
 
 .c-gray{
@@ -140,20 +141,51 @@ input[type="text"]{
     border-radius: 5px;
 }
 .message>div{
-    padding: 5px;
+    padding: 5px 20px;
 }
 .ricevuti{
     background-color:white;
     float:left;
 }
 .inviati{
-    background-color:rgb(220, 248, 198);
+    background-color:var(--green);
     float:right;
 }
 .mess{
-    border-radius: 5px;
+    position: relative;
     padding:10px;
     max-width: 50%;
+}
+.mess.inviati{
+    border-radius: 5px;
+    border-top-right-radius: 0;
+}
+.mess.ricevuti{
+    border-radius: 5px;
+    border-top-left-radius: 0;
+}
+.mess:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+ 
+}
+.mess.inviati:before{
+    right: -10px;
+    top: 0px;
+    border-left: 5px solid var(--green);
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--green);
+    border-bottom: 5px solid transparent;
+}
+.mess.ricevuti:before{
+    left: -10px;
+    top: 0px;
+    border-right: 5px solid white;
+    border-left: 5px solid transparent;
+    border-top: 5px solid white;
+    border-bottom: 5px solid transparent;
 }
 .mess div:first-child{
     margin: 5px 0;

@@ -5,7 +5,6 @@ const app =new Vue({
     data: {
         message:"",
         counter:0,
-        save:[],
         filter:"",
         contacts: [
             {
@@ -90,11 +89,6 @@ const app =new Vue({
             },
         ]
     },
-    mounted(){
-        for (let i = 0; i <this.contacts.length;i++){
-            this.save.push(i)
-        }
-    },
     methods: {
        changeChat(index){
             this.counter=index;
@@ -117,15 +111,13 @@ const app =new Vue({
            this.contacts.forEach((contatto,index)=>{
                let f = this.filter.toLowerCase();
                console.log(f)
-               if(f.replace(/\s+/g, '') =="" || f.replace(/\s+/g, '') ==''){
-                   return this.save.push(index);
-               }
-               else{
-                   let c = contatto.name.toLowerCase();
-                   if(c.includes(f)){
-                       return this.save.push(index)
-                   }
-               }
+                let c = contatto.name.toLowerCase();
+                if(c.includes(f.trim()) || f.trim()==""){
+                    contatto.visible=true;
+                }
+                else{
+                    contatto.visible=false;
+                }
             });  
        },
        deleteMessage(index) {

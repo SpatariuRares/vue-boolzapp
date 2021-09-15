@@ -43,16 +43,16 @@
                     <button class="c-gray"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="chats">
-                    <div class="contact" :class="(counter==numero)?'b_gray':null" v-for="numero in save" @click="changeChat(numero)">
-                        <img class="avatar" :src="`img/avatar${contacts[numero].avatar}.jpg`" :alt="contacts[numero].name">
+                    <div class="contact" :class="(counter==index)?'b_gray':null" v-for="(contact,index) in contacts" @click="changeChat(index)" v-show="contact.visible">
+                        <img class="avatar" :src="`img/avatar${contact.avatar}.jpg`" :alt="contacts[index].name">
                         <div>
-                            <div>{{contacts[numero].name}}</div>
+                            <div>{{contact.name}}</div>
                             <div class="ora c-gray">
                                 <span>
-                                    {{contacts[numero].messages[contacts[numero].messages.length-1].message}}
+                                    {{contact.messages[contact.messages.length-1].message}}
                                 </span>
                                 <span class="t-right">
-                                    {{ obtainTime(contacts[numero].messages[contacts[numero].messages.length-1].date)}}
+                                    {{ obtainTime(contact.messages[contact.messages.length-1].date)}}
                                 </span>
                             </div>
                         </div>
