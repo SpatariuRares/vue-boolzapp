@@ -42,20 +42,22 @@
                     <button class="c-gray"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="chats">
-                    <div class="contact" :class="(counter==index)?'b_gray':null" v-for="(contact,index) in contacts" @click="changeChat(index)" v-show="contact.visible">
-                        <img class="avatar" :src="`img/avatar${contact.avatar}.jpg`" :alt="contacts[index].name">
-                        <div>
-                            <div>{{contact.name}}</div>
-                            <div class="ora c-gray">
-                                <span>
-                                    {{contact.messages[contact.messages.length-1].message}}
-                                </span>
-                                <span class="t-right">
-                                    {{ obtainTime(contact.messages[contact.messages.length-1].date)}}
-                                </span>
+                    <template v-for="(contact,index) in contacts">
+                        <div class="contact" :class="(counter==index)?'b_gray':null" @click="changeChat(index)" v-show="contact.visible">
+                            <img class="avatar" :src="`img/avatar${contact.avatar}.jpg`" :alt="contacts[index].name">
+                            <div>
+                                <div>{{contact.name}}</div>
+                                <div class="ora c-gray">
+                                    <span>
+                                        {{contact.messages[contact.messages.length-1].message}}
+                                    </span>
+                                    <span class="t-right">
+                                        {{ obtainTime(contact.messages[contact.messages.length-1].date)}}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </template>
                 </div>
             </div>
             <div class="chat">
